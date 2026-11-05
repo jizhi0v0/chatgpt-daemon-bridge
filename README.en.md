@@ -6,6 +6,14 @@ Connect ChatGPT Desktop on macOS to an existing Codex Managed Daemon through a l
 
 This is an experimental connection workaround, not an official OpenAI fix. **It currently does not preserve full `codex_app` desktop control tool functionality.**
 
+## Demo
+
+An example of the same conversation updating across Desktop, iPhone, and CLI. Click the preview to watch or download the original MP4 (about 29 seconds, 31 MB).
+
+[![Shared conversation across Desktop, iPhone, and CLI](assets/demo-preview.jpg)](assets/demo.mp4)
+
+[Watch / download the video](assets/demo.mp4)
+
 ## Background
 
 Some Desktop versions only honor `CODEX_APP_SERVER_USE_LOCAL_DAEMON=1` when `configOverrides` is empty. However, Desktop automatically adds a `codex_app` plugin override, causing it to start a separate stdio App Server. When two servers try to resume the same session, they may report `already has an active writer`.
@@ -77,7 +85,7 @@ Tested with ChatGPT `26.1029.61003` (build `24614`) and Managed Daemon `0.166.0`
 - `initialize`, `thread/list`, and the organization settings preflight succeeded.
 - A real Desktop launch reported `initialized=true` and `connected`.
 - The user confirmed in the UI that an existing session opened normally and its latest messages matched.
-- Simultaneous messaging across all three clients has not been separately verified.
+- The user-provided demo recording shows the same conversation and message updates across Desktop, iPhone, and CLI. It is not a long-term stability test.
 - The `codex_app` desktop tools were not loaded through the startup arguments. Sharing the session service does not establish full desktop tool compatibility.
 - The bridge does not apply additional feature flags to the existing daemon or transfer writer locks held by an older standalone server.
 - The bridge does not reconnect on its own. Disconnection behavior depends on Desktop's connection lifecycle.

@@ -6,6 +6,14 @@
 
 这是实验性的连接层绕行方案，不是 OpenAI 官方修复。**目前不保留完整的 `codex_app` 桌面控制工具功能。**
 
+## 示例
+
+Desktop、iPhone 和 CLI 中的同一会话更新演示。点击预览图观看或下载原始 MP4（约 29 秒，31 MB）。
+
+[![Desktop、iPhone 与 CLI 共享会话演示](assets/demo-preview.jpg)](assets/demo.mp4)
+
+[观看 / 下载视频](assets/demo.mp4)
+
 ## 背景
 
 某些 Desktop 版本只有在 `configOverrides` 为空时，才会响应 `CODEX_APP_SERVER_USE_LOCAL_DAEMON=1`。但 Desktop 又自动添加 `codex_app` 插件覆盖项，导致它仍启动独立的 stdio App Server。两个服务尝试恢复同一个会话时，可能出现 `already has an active writer`。
@@ -79,7 +87,7 @@ codex remote-control start
 - `initialize`、`thread/list` 和组织设置预检通过。
 - Desktop 真实启动后报告 `initialized=true`、`connected`。
 - 已在界面确认原会话正常打开，最新消息一致。
-- 三端同时收发消息尚未单独验证。
+- 用户提供的示例录屏展示了 Desktop、iPhone 和 CLI 中的同一会话与消息更新；这不是长期稳定性测试。
 - `codex_app` 桌面工具没有随启动参数加载；共用会话服务不等于完整桌面工具兼容。
 - 不会给现有 Daemon 补设功能开关或转移旧独立服务持有的写入锁。
 - 转接器不自行重连；断线后的行为取决于 Desktop 的连接生命周期。

@@ -8,11 +8,11 @@
 
 ## 示例
 
-Desktop、iPhone 和 CLI 中的同一会话更新演示。点击预览图观看或下载原始 MP4（约 29 秒，31 MB）。
+Desktop、iPhone 和 CLI 中的同一会话更新演示。下方动图可直接预览（约 2.9 MB）；点击可查看或下载带音频的压缩 MP4（约 29 秒，1.2 MB）。
 
-[![Desktop、iPhone 与 CLI 共享会话演示](assets/demo-preview.jpg)](assets/demo.mp4)
+<a href="assets/demo.mp4?raw=true"><img src="assets/demo-preview.gif" alt="Desktop、iPhone 与 CLI 共享会话演示" width="720"></a>
 
-[观看 / 下载视频](assets/demo.mp4)
+[观看 / 下载视频](assets/demo.mp4?raw=true)
 
 ## 背景
 

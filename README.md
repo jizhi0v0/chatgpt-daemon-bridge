@@ -8,11 +8,11 @@
 
 ## 示例
 
-Desktop、iPhone 和 CLI 中的同一会话更新演示。直接观看下方动图即可（约 29 秒，2.9 MB，无音频），无需打开 MP4 文件页。
+Desktop、iPhone 和 CLI 中的同一会话更新演示。下方是无音频动图；点击预览或下方链接，可打开独立的视频播放页（约 29 秒，带音频，1.2 MB）。
 
-<img src="assets/demo-preview.gif" alt="Desktop、iPhone 与 CLI 共享会话演示" width="720">
+<a href="https://s.jizhiovo.com/fSRb3n7xZutb"><img src="assets/demo-preview.gif" alt="Desktop、iPhone 与 CLI 共享会话演示" width="720"></a>
 
-GitHub 手机 App 的 MP4 文件预览在本次测试中不可用。如需音频，请在浏览器中打开仓库后[观看或下载 MP4](assets/demo.mp4?raw=true)（约 1.2 MB）。
+[打开视频播放页](https://s.jizhiovo.com/fSRb3n7xZutb) · [下载 MP4](https://s.jizhiovo.com/fSRb3n7xZutb/dl)
 
 ## 背景
 

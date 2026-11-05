@@ -1,0 +1,55 @@
+#!/bin/sh
+set -eu
+bridge_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+real_codex="${CODEX_HOME:-$HOME/.codex}/packages/standalone/current/bin/codex"
+bridge="$bridge_dir/bridge.cjs"
+if [ ! -x "$real_codex" ]; then
+  echo "Managed Codex CLI not found. Install and start the managed daemon first." >&2
+  exit 127
+fi
+
+# Preserve ordinary CLI commands, including version and daemon discovery.
+is_app_server=false
+expect_config=false
+for arg in "$@"; do
+  if "$expect_config"; then expect_config=false; continue; fi
+  case "$arg" in
+    -c|--config) expect_config=true ;;
+    app-server) is_app_server=true; break ;;
+    --version|-V|--help|-h) exec "$real_codex" "$@" ;;
+  esac
+done
+if ! "$is_app_server"; then exec "$real_codex" "$@"; fi
+
+# Only replace the Desktop's known app-server startup command.
+# Daemon management and all other subcommands still use the real CLI.
+for arg in "$@"; do
+  case "$arg" in
+    daemon|proxy|generate-ts|generate-json-schema|--print-startup-config|--startup-sign-out) exec "$real_codex" "$@" ;;
+  esac
+done
+expect_config=false
+for arg in "$@"; do
+  if "$expect_config"; then
+    case "$arg" in
+      features.code_mode_host=true|plugins.codex-app-tools@openai-bundled.mcp_servers.codex_app.enabled=true|plugins.codex-app-tools@openai-bundled.mcp_servers.codex_app.enabled=false) ;;
+      *) echo "Unsupported Desktop startup override; refusing to discard configuration." >&2; exit 64 ;;
+    esac
+    expect_config=false
+    continue
+  fi
+  case "$arg" in
+    -c|--config) expect_config=true ;;
+    app-server|--analytics-default-enabled) ;;
+    *) echo "Unsupported Desktop startup argument: $arg" >&2; exit 64 ;;
+  esac
+done
+if "$expect_config"; then exit 64; fi
+node_path=/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+if [ ! -x "$node_path" ]; then
+  node_path=$(command -v node) || {
+    echo "Node.js was not found in ChatGPT or PATH." >&2
+    exit 127
+  }
+fi
+exec "$node_path" "$bridge"

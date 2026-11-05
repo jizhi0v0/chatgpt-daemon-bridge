@@ -1,0 +1,11 @@
+{
+  "name": "chatgpt-daemon-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Connect ChatGPT Desktop to an existing local Codex Managed Daemon through a stdio/WebSocket bridge.",
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "ws": "8.22.1"
+  }
+}

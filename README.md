@@ -1,5 +1,7 @@
 # ChatGPT Daemon Bridge
 
+[简体中文](README.md) | [English](README.en.md)
+
 让 macOS ChatGPT Desktop 通过本地转接器接入已有的 Codex Managed Daemon，与使用同一 Daemon 的 CLI、iPhone 共用会话服务。
 
 这是实验性的连接层绕行方案，不是 OpenAI 官方修复。**目前不保留完整的 `codex_app` 桌面控制工具功能。**

@@ -8,11 +8,11 @@ This is an experimental connection workaround, not an official OpenAI fix. **It 
 
 ## Demo
 
-An example of the same conversation updating across Desktop, iPhone, and CLI. The animation below provides an inline preview (about 2.9 MB). Click it to view or download the compressed MP4 with audio (about 29 seconds, 1.2 MB).
+An example of the same conversation updating across Desktop, iPhone, and CLI. Watch the animation directly below (about 29 seconds, 2.9 MB, no audio); there is no need to open the MP4 file page.
 
-<a href="assets/demo.mp4?raw=true"><img src="assets/demo-preview.gif" alt="Shared conversation across Desktop, iPhone, and CLI" width="720"></a>
+<img src="assets/demo-preview.gif" alt="Shared conversation across Desktop, iPhone, and CLI" width="720">
 
-[Watch / download the video](assets/demo.mp4?raw=true)
+The GitHub mobile app could not preview the MP4 file in our test. For audio, open the repository in a browser to [watch or download the MP4](assets/demo.mp4?raw=true) (about 1.2 MB).
 
 ## Background
 
